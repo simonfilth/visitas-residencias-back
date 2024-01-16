@@ -354,7 +354,7 @@ a {text-decoration: none;}
                                                                     style="padding:0;Margin:0;padding-top:10px;padding-bottom:10px">
                                                                     <p
                                                                         style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">
-                                                                        <strong>Visitante:</strong></p>
+                                                                        <strong>Visitante:</strong>: {{ $visitante }}</p>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -362,9 +362,19 @@ a {text-decoration: none;}
                                                                     style="padding:0;Margin:0;padding-top:10px;padding-bottom:10px">
                                                                     <p
                                                                         style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">
-                                                                        {{ $visitante }}</p>
+                                                                        <strong>Cédula:</strong>: {{ $cedula }}</p>
                                                                 </td>
                                                             </tr>
+                                                            @if($observacion)
+                                                            <tr>
+                                                                <td align="left"
+                                                                    style="padding:0;Margin:0;padding-top:10px;padding-bottom:10px">
+                                                                    <p
+                                                                        style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">
+                                                                        <strong>Observacion:</strong>: {{ $observacion }}</p>
+                                                                </td>
+                                                            </tr>
+                                                            @endif
                                                         </table>
                                                     </td>
                                                 </tr>

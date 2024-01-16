@@ -47,17 +47,19 @@ class RegistroVisita extends Notification
 
         $dateObj = new \DateTime($this->visita->hora_ingreso);
 
-        $mensaje = "Le acaba de llegar una visita, " . $dateObj->format('d \d\e F \d\e Y, \a \l\a\s H:i');
+        $mensaje = "Te acaba de llegar una visita, " . $dateObj->format('d \d\e F \d\e Y, \a \l\a\s H:i');
 
         $empleado = $this->empleado->nombre;
         $visitante = $this->visita->visitante_nombre;
+        $cedula = $this->visita->cedula;
+        $observacion = $this->visita->observacion;
 
         $appUrl = config('app.storage_url');
         $imagen = $appUrl.'/'.'visitas/' . $this->visita->visitante_foto;
 
         return (new MailMessage)
             ->subject("Tienes una nueva visita")
-            ->view('emails.visitas.registro-visita', compact('mensaje','visitante','empleado','imagen'));
+            ->view('emails.visitas.registro-visita', compact('mensaje','visitante','empleado','imagen','cedula','observacion'));
     }
 
     /**

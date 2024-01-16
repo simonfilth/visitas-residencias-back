@@ -13,9 +13,10 @@ class Visita extends Model
         'propietario',
         'apartamento',
         'usuario_id',
-        'arl_id',
+        'cedula',
+        /* 'arl_id',
         'tipo_sangre_id',
-        'eps_id',
+        'eps_id', */
         'visitante_nombre',
         'observacion',
     ];

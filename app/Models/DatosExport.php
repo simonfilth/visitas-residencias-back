@@ -56,9 +56,10 @@ class DatosExport implements FromCollection, WithHeadings, WithStyles, WithDrawi
         return [
             'ID',
             'Nombre del visitante',
-            'Nombre de la ARL',
+            'Cédula',
+            /* 'Nombre de la ARL',
             'Nombre de la EPS',
-            'Tipo de sangre',
+            'Tipo de sangre', */
             'Torre',
             'Apartamento',
             'Propietario',
@@ -98,10 +99,11 @@ class DatosExport implements FromCollection, WithHeadings, WithStyles, WithDrawi
         $sheet->getColumnDimension('E')->setWidth(13);
         $sheet->getColumnDimension('F')->setWidth(13);
         $sheet->getColumnDimension('G')->setWidth(13);
-        $sheet->getColumnDimension('H')->setWidth(13);
-        $sheet->getColumnDimension('I')->setWidth(13);
+        $sheet->getColumnDimension('H')->setWidth(20);
+        $sheet->getColumnDimension('I')->setWidth(25);
+        /* $sheet->getColumnDimension('I')->setWidth(13);
         $sheet->getColumnDimension('J')->setWidth(20);
-        $sheet->getColumnDimension('K')->setWidth(25);
+        $sheet->getColumnDimension('K')->setWidth(25); */
 
         // Ajustar el ancho de las columnas al contenido
         $sheet->getStyle('A1:' . $sheet->getHighestColumn() . $sheet->getHighestRow())
@@ -139,7 +141,7 @@ class DatosExport implements FromCollection, WithHeadings, WithStyles, WithDrawi
             // $drawing->setPath($visita->foto); // Establecer la ruta de la imagen
             $drawing->setPath($this->foto[$i++]); // Establecer la ruta de la imagen
             $drawing->setHeight(120); // Establecer la altura de la imagen
-            $drawing->setCoordinates('L' . $rowIndex); // Establecer las coordenadas de la celda donde se dibujará la imagen
+            $drawing->setCoordinates('J' . $rowIndex); // Establecer las coordenadas de la celda donde se dibujará la imagen
             $drawings[] = $drawing; // Agregar el objeto Drawing al arreglo de dibujos
             // Obtener la fila correspondiente a la visita actual
 

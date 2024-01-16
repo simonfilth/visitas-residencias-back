@@ -27,9 +27,10 @@ class VisitasController extends Controller
             'torre' => 'required',
             'apartamento' => 'required',
             'propietario' => 'required',
-            'arl_id' => 'required',
+            'cedula' => 'required',
+            /* 'arl_id' => 'required',
             'tipo_sangre_id' => 'required',
-            'eps_id' => 'required',
+            'eps_id' => 'required', */
             'visitante_nombre' => 'required',
             'image' => 'required',
         ];
@@ -94,10 +95,10 @@ class VisitasController extends Controller
     public function testCorreo()
     {
         $visita = Visita::first();
-        $empleado = Empleado::findOrFail($visita->empleado_id);
+        $propietario = Propietario::findOrFail(1);
 
 
-        $empleado->notify(new RegistroVisita($empleado, $visita));
+        $propietario->notify(new RegistroVisita($propietario, $visita));
 
         return "enviado";
     }
@@ -107,16 +108,17 @@ class VisitasController extends Controller
     {
         $visitas = Visita::
         join('users as u', 'u.id', 'visitas.usuario_id')
-        ->join('arl', 'arl.id', 'visitas.arl_id')
+        /* ->join('arl', 'arl.id', 'visitas.arl_id')
         ->join('eps', 'eps.id', 'visitas.eps_id')
-        ->join('tipo_sangre', 'tipo_sangre.id', 'visitas.tipo_sangre_id')
+        ->join('tipo_sangre', 'tipo_sangre.id', 'visitas.tipo_sangre_id') */
         ->where('u.id', $id)
         ->select(
             'visitas.id',
             'visitas.visitante_nombre',
-            'arl.nombre as nombre_arl',
+            'visitas.cedula',
+            /* 'arl.nombre as nombre_arl',
             'eps.nombre as nombre_eps',
-            'tipo_sangre.nombre as nombre_tipo_sangre',
+            'tipo_sangre.nombre as nombre_tipo_sangre', */
             'visitas.torre',
             'visitas.apartamento',
             'visitas.propietario',
